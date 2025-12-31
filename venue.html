@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Venue</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* =====================
+           BASE
+        ====================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: rgba(212, 175, 155, 0.9);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", sans-serif;
+            color-scheme: light dark;
+        }
+
+        /* =====================
+           MAIN CONTAINER
+        ====================== */
+        .main-box {
+            width: 100%;
+            max-width: 800px;
+
+            padding: 50px 36px;
+            border-radius: 18px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+
+            background-color: rgba(248, 246, 242, 1);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+
+            text-align: center;
+        }
+
+        /* =====================
+           HEADING
+        ====================== */
+        .h-1 {
+            margin: 0;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+            font-size: 35px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .h-1:hover {
+            font-size: 50px;
+        }
+
+        /* =====================
+           CTA TO FURTHER INFO
+        ====================== */
+        .further-link {
+            margin-top: -10px;
+            text-decoration: none;
+            color: rgba(90, 90, 90, 0.85);
+            font-size: 0.95rem;
+            letter-spacing: 0.06em;
+            transition: all 0.3s ease;
+        }
+
+        .further-link span {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .further-link:hover {
+            color: #660033;
+            transform: translateY(3px);
+        }
+
+        /* =====================
+           VENUE CARD
+        ====================== */
+        .sub-box-one {
+            padding: 16px 20px;
+            border-radius: 14px;
+
+            background-color: rgba(218, 218, 226, 0.36);
+            box-shadow:
+                0 6px 14px rgba(0, 0, 0, 0.04),
+                0 20px 50px rgba(0, 0, 0, 0.05);
+
+            max-width: 500px;
+        }
+
+        /* =====================
+           BACK LINK
+        ====================== */
+        .back-link {
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            color: rgba(80, 80, 80, 0.8);
+        }
+
+        .para {
+            font-size: larger;
+            color: #660033;
+            font-style: italic;
+            opacity: 0.85;
+            animation: gentle-blink 2.5s ease-in-out infinite;
+        }
+
+        @keyframes gentle-blink {
+            0% { opacity: 0.85; }
+            50% { opacity: 0.4; }
+            100% { opacity: 0.85; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-box">
+
+        <a class="h-1">
+            VENUE
+        </a>
+
+        <!-- 🔽 ADDED HERE -->
+        <a href="https://www.google.com/maps/search/blitz+sports+arena+in+google+map+location/@12.8970811,77.6684493,20.38z?entry=ttu" class="further-link">
+            <span>⬇</span>
+            Click here for further venue details
+        </a>
+
+        <div class="sub-box-one">
+            33, Reliable Silver Oak Main Road, Eastwood Township,
+            next to Dinne Anjaneya Swamy Temple, Harlur, Bangalore – 560068<br>
+
+            |17th january 2026||expected report time --> 10:30 am|
+        </div>
+
+
+        <a class="back-link" href="bday.html">
+            ← Back to Invitation
+        </a>
+
+        <p class="para">| WHERE LEVEL 13 BEGINS! |</p>
+
+    </div>
+</body>
+</html>

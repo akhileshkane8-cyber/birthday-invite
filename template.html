@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Further Info</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+<style>
+/* ===== PAGE BASE ===== */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'VT323', monospace;
+
+    background:
+        linear-gradient(#5b8c3b 0%, #5b8c3b 50%, #4a6f2a 50%, #4a6f2a 100%);
+    background-size: 100% 80px;
+}
+
+/* ===== GAME SCREEN ===== */
+.game-screen {
+    width: 90%;
+    max-width: 500px;
+    padding: 24px;
+
+    background-color: #2b2b2b;
+    color: #aaffaa;
+
+    border-radius: 4px;
+    box-shadow:
+        0 0 0 4px #1a1a1a,
+        0 0 0 8px #3a3a3a,
+        0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* ===== TITLE ===== */
+.game-title {
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+}
+
+/* ===== INFO TEXT ===== */
+.game-line {
+    font-size: 1.4rem;
+    margin: 6px 0;
+}
+
+.game-status {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* ===== BACK BUTTON ===== */
+.mc-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+
+    padding: 10px 20px;
+    background-color: #6b6b6b;
+    color: #ffffff;
+
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+
+    border: 3px solid #2b2b2b;
+    box-shadow:
+        inset 0 3px 0 rgba(255,255,255,0.3),
+        inset 0 -3px 0 rgba(0,0,0,0.4);
+}
+
+.mc-button:hover {
+    background-color: #7d7d7d;
+}
+
+/* ===== ITEM DISPLAY ===== */
+.item-display {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+    color: #00ffd5;
+    opacity: 0.85;
+}
+
+/* ===== HOTBAR ===== */
+.hotbar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 6px;
+}
+
+/* SLOT */
+.slot {
+    width: 44px;
+    height: 44px;
+
+    background-color: #8b8b8b;
+    border: 3px solid #2b2b2b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 3px 0 rgba(255,255,255,0.25),
+        inset 0 -3px 0 rgba(0,0,0,0.4);
+}
+
+.slot.active {
+    outline: 3px solid white;
+    outline-offset: 2px;
+}
+
+/* ===== MOBS ===== */
+.mob {
+    position: fixed;
+    bottom: 80px;
+    width: 40px;
+    height: 56px;
+
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 4px;
+    opacity: 0.35;
+
+    animation: mob-idle 6s ease-in-out infinite;
+}
+
+.mob-left { left: 20px; }
+.mob-right { right: 20px; animation-delay: 3s; }
+
+@keyframes mob-idle {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+.mob.scared {
+    animation: mob-flee 0.6s ease-in-out infinite;
+    opacity: 0.2;
+}
+
+.mob.angry {
+    opacity: 0.6;
+    transform: scale(1.1);
+}
+
+@keyframes mob-flee {
+
+
+    0%   { transform: translateY(0) scale(1); }
+    50%  { transform: translateY(-12px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+
+/* ===== MOB HIT EFFECT ===== */
+.mob.hit {
+    background-color: rgba(220, 30, 30, 0.85) !important;
+    box-shadow:
+        0 0 0 4px rgba(180, 0, 0, 0.8),
+        inset 0 0 0 4px rgba(255, 120, 120, 0.6);
+
+    animation: mob-hit 0.2s ease-in-out;
+}
+/* ===== SCREEN SHAKE ===== */
+body.shake {
+    animation: screen-shake 0.3s;
+}
+
+@keyframes screen-shake {
+    0%   { transform: translate(0, 0); }
+    20%  { transform: translate(-6px, 4px); }
+    40%  { transform: translate(6px, -4px); }
+    60%  { transform: translate(-4px, -6px); }
+    80%  { transform: translate(4px, 6px); }
+    100% { transform: translate(0, 0); }
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- MOBS -->
+<div class="mob mob-left"></div>
+<div class="mob mob-right"></div>
+
+<!-- MAIN PANEL -->
+<div class="game-screen">
+    <div class="game-title">FURTHER INFO</div>
+    <div class="game-line">NOT A NORMAL PARTY.</div>
+    <div class="game-line">LEVEL 13 IS A BIG DEAL.</div>
+    <div class="game-status">NEXT UPDATE LOADING…</div>
+</div>
+
+<!-- ITEM NAME -->
+<div class="item-display" id="itemDisplay">TOTEM OF UNDYING</div>
+
+<!-- HOTBAR -->
+<div class="hotbar">
+    <div class="slot active" data-item="TOTEM OF UNDYING">🟩</div>
+    <div class="slot" data-item="ENCHANTED NETHERITE SWORD">🗡️</div>
+    <div class="slot" data-item="ENCHANTED GOLDEN APPLE">🍎</div>
+    <div class="slot" data-item="MACE">🔨</div>
+    <div class="slot" data-item="NETHERITE ARMOR">🛡️</div>  
+    <div class="slot" data-item="END CRYSTAL">💠</div>
+    <div class="slot" data-item="ELYTRA">🕊️</div>
+    <div class="slot" data-item="TRIDENT">🔱</div>
+    <div class="slot" data-item="COMMAND BLOCK">🟥</div>
+</div>
+
+<a href="bday.html" class="mc-button">BACK TO SPAWN</a>
+</body>
+</html>
+
+
+<script>
+let currentItem = "TOTEM OF UNDYING";
+
+    const slots = document.querySelectorAll(".slot");
+    const display = document.getElementById("itemDisplay");
+    const mobs = document.querySelectorAll(".mob");
+    document.addEventListener("click", () => {
+    attack(currentItem);
+    function attack(item) {
+    // Only weapons cause damage
+    if (
+        item.includes("SWORD") ||
+        item.includes("MACE") ||
+        item.includes("TRIDENT")
+    ) {
+        // Screen shake
+        document.body.classList.add("shake");
+        setTimeout(() => {
+            document.body.classList.remove("shake");
+        }, 300);
+
+        // Mob hit reaction
+        mobs.forEach(mob => {
+            mob.classList.add("hit");
+            setTimeout(() => {
+                mob.classList.remove("hit");
+            }, 2000);
+        });
+    }
+}
+
+});
+
+
+        function activateSlot(slot) {
+    slots.forEach(s => s.classList.remove("active"));
+    slot.classList.add("active");
+    currentItem = slot.dataset.item;
+    display.textContent = currentItem;
+}
+
+    
+
+    // Click support
+    slots.forEach(slot => {
+        slot.addEventListener("click", () => activateSlot(slot));
+    });
+
+    // Number keys 1–9
+    document.addEventListener("keydown", (e) => {
+        const key = parseInt(e.key);
+        if (key >= 1 && key <= 9) {
+            activateSlot(slots[key - 1]);
+        }
+    });
+
+    // MOB REACTION LOGIC (ONE VERSION ONLY)
+    function reactMobs(item) {
+        mobs.forEach(mob => {
+            mob.classList.remove("scared", "angry", "hit");
+
+   // DAMAGE ITEMS → HIT + SCREEN SHAKE
+if (
+    item.includes("SWORD") ||
+    item.includes("MACE") ||
+    item.includes("TRIDENT")
+) {
+    mob.classList.add("hit");
+
+    document.body.classList.add("shake");
+    setTimeout(() => {
+        document.body.classList.remove("shake");
+    }, 300);
+
+    setTimeout(() => {
+        mob.classList.remove("hit");
+    }, 2000);
+}
+
+
+            // POWER ITEMS → ANGRY
+            if (
+                item.includes("TOTEM") ||
+                item.includes("COMMAND")
+            ) {
+                mob.classList.add("angry");
+            }
+        });
+    }
+;
+</script>
+
+
+
+

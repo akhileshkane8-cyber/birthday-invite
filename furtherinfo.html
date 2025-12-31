@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+<style>
+    html, body {
+    overflow-x: hidden;
+}
+@media (max-width: 600px) {
+    .main-box {
+        padding: 36px 20px;
+        gap: 18px;
+    }
+}
+@media (max-width: 600px) {
+    .level-text {
+        font-size: 2.4rem;
+    }
+
+    .subtext {
+        font-size: 2rem;
+        letter-spacing: 0.2em;
+    }
+}
+    @media (max-width: 800px) {
+    .level-layout {
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .level-side,
+    .level-center {
+        width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .back-button {
+        bottom: 16px;
+        left: 16px;
+        font-size: 1rem;
+    }
+
+    .system-status {
+        bottom: 16px;
+        right: 16px;
+        font-size: 1rem;
+    }
+}
+
+/* ===== OVERLAY ===== */
+.level-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    z-index: 5;
+}
+
+/* ===== OVERLAY TEXT ===== */
+.level-text {
+    font-size: 4rem;
+    text-align: center;
+    font-family: 'Press Start 2P', monospace;
+}
+
+/* ===== TEXT STYLES ===== */
+.span-1 {
+    font-weight: 800;
+    color: aquamarine;
+    text-shadow: 6px 6px rgba(232, 229, 231, 0.28);
+}
+
+.span-2 {
+    color: rgb(14, 219, 219);
+}
+
+.subtext {
+    color: rgb(14, 219, 219);
+    letter-spacing: 0.3em;
+    font-size: 60px;
+    font-family: 'VT323', monospace;
+    text-decoration: overline;
+
+}
+
+/* ===== MAIN CONTENT BOX ===== */
+.main-box {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 900px;
+    padding: 60px 40px;
+
+    background-color: rgba(248, 246, 242, 1);
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+/* ===== FUN INFO WRAPPER ===== */
+.fun-wrapper {
+    position: relative;
+    z-index: 1;
+
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* ===== LEVEL CENTER LAYOUT ===== */
+.level-layout {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 60px;
+    background: black;
+}
+
+/* LEFT + RIGHT TEXT */
+.level-side {
+    width: 25%;
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: white;
+    opacity: 0.85;
+}
+
+/* CENTER TEXT */
+.level-center {
+    width: 50%;
+    text-align: center;
+    font-family: 'Press Start 2P', monospace;
+}
+
+/* MOBILE STACK */
+@media (max-width: 800px) {
+    .level-layout {
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .level-side,
+    .level-center {
+        width: 100%;
+    }
+}
+.system-status {
+    position: fixed;
+    bottom: 20px;
+    right: 24px;
+
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+
+    color: rgba(0, 255, 213, 0.7);
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.system-status {
+    animation: blink 1.6s infinite;
+}
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 24px;
+
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.back-button:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+/* ===== COUNTER ===== */
+.level-counter {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: 'VT323', monospace;
+    font-size: 3rem;
+    letter-spacing: 0.2em;
+
+    color: #00ffd5;
+    z-index: 3;
+}
+
+/* ===== FIREWORKS ===== */
+.fireworks {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.firework {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== OVERLAY ===== -->
+<div class="level-layout">
+    <!-- LEFT -->
+    <div class="level-side">
+        ⚠️ Fun levels may exceed limits<br>
+        🎮 Side quests enabled<br>
+        🎂 Cake confirmed
+    </div>
+
+    <!-- CENTER -->
+    <div class="level-center">
+        <div class="level-text">
+            <span class="span-1">LEVEL</span><br>
+            <span class="span-2">&middot;&middot;&middot; 13 &middot;&middot;&middot;</span>
+        </div>
+        <div class="subtext">UNLOCKED</div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="level-side">
+        📸 Cameras everywhere<br>
+        🔓 Secrets loading…<br>
+        🚀 Expect surprises
+    </div>
+    <div class="system-status">NEXT UPDATE LOADING…</div>
+<a href="bday.html" class="back-button">← BACK</a>
+    <!-- LEVEL COUNTER -->
+<div class="level-counter" id="levelCounter">0</div>
+
+<!-- FIREWORKS CONTAINER -->
+<div class="fireworks" id="fireworks"></div>
+
+
+</div>
+
+
+</body>
+</html>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const counter = document.getElementById("levelCounter");
+    const fireworks = document.getElementById("fireworks");
+
+    let count = 0;
+
+    const interval = setInterval(() => {
+        count++;
+        counter.textContent = count;
+
+        if (count === 13) {
+            clearInterval(interval);
+            launchFireworks();
+        }
+    }, 1000);
+
+    function launchFireworks() {
+        for (let i = 0; i < 80; i++) {
+            const particle = document.createElement("div");
+            particle.className = "firework";
+
+            particle.style.left = Math.random() * window.innerWidth + "px";
+            particle.style.top = Math.random() * window.innerHeight + "px";
+
+            particle.style.backgroundColor =
+                `hsl(${Math.random() * 360}, 100%, 60%)`;
+
+            particle.style.setProperty(
+                "--x",
+                `${(Math.random() - 0.5) * 200}px`
+            );
+            particle.style.setProperty(
+                "--y",
+                `${(Math.random() - 0.5) * 200}px`
+            );
+
+            fireworks.appendChild(particle);
+
+            setTimeout(() => particle.remove(), 1000);
+        }
+    }
+});
+</script>
+
