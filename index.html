@@ -1,10 +1,217 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My First GitHub Page</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <p>This is a plain HTML site hosted on GitHub Pages.</p>
-  </body>
+<html lang="en">
+<head>
+    <title>bday.website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* =====================
+           BASE RESET
+        ====================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: rgba(212, 175, 155, 0.9);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", sans-serif;
+        }
+
+        /* =====================
+           MAIN CONTAINER
+        ====================== */
+        .main-box {
+            width: 100%;
+            max-width: 900px;
+            min-height: 90vh;
+
+            padding: 60px 40px;
+            border-radius: 18px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+
+            background-color: rgba(248, 246, 242, 1);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+
+            text-align: center;
+
+            animation: gentle-float 8s ease-in-out infinite;
+            align-items: center;
+        }
+
+        .main-box:hover {
+            animation-play-state: paused;
+        }
+
+        /* =====================
+           TYPOGRAPHY
+        ====================== */
+        .h-1 {
+            margin: 0;
+            color: rgba(40, 40, 40, 0.95);
+
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        .subtle-para {
+            margin: 0;
+            font-size: 0.95rem;
+            color: rgba(150, 155, 161, 0.65);
+            font-style: italic;
+        }
+
+        /* =====================
+           BUTTONS
+        ====================== */
+        .action-button {
+            padding: 6px 16px;
+            border-radius: 20px;
+
+            background-color: rgba(195, 39, 75, 0.62);
+            color: white;
+            text-decoration: none;
+
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+
+            transition: all 0.6s ease;
+        }
+
+        .action-button:hover {
+            background-color: peachpuff;
+            color: rgba(128, 0, 0, 0.8);
+            padding: 10px 20px;
+        }
+
+        /* =====================
+           SUB BOX
+        ====================== */
+        .sub-box-one {
+            padding: 10px 14px;
+            border-radius: 15px;
+
+            background-color: rgba(218, 218, 226, 0.36);
+            box-shadow:
+                0 6px 14px rgba(0, 0, 0, 0.04),
+                0 20px 50px rgba(0, 0, 0, 0.05);
+        }
+
+        /* =====================
+           ANIMATION
+        ====================== */
+        @keyframes gentle-float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* =====================
+           MOBILE POLISH
+        ====================== */
+        @media (max-width: 600px) {
+            .main-box {
+                padding: 40px 24px;
+                min-height: 85vh;
+            }
+        }
+        .sub-box-two{
+            background-image:url("C:/Users/dhana/OneDrive/Desktop/bday img.png");
+            padding-top:30px;
+            padding-bottom:90px;
+            padding-left:100px;
+            padding-right: 110px;
+            color:rgba(255,255,255,0.01)
+        }
+        .subtle-para-two{
+            flood-color: azure;
+            background-color:rgba(218, 218, 226, 0.36) ;
+            border-radius: 10px;
+            color:goldenrod;
+            text-decoration:underline;
+            font-weight: 600;
+            font-size:19px;
+             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+             font-family:Georgia;
+        }
+       .span-1{
+        color: yellowgreen;
+        font-size: smaller;
+       } 
+        .span-2{
+                   color: yellowgreen; 
+                   font-size: smaller;
+        }.enter-game {
+    margin-top: 16px;
+
+    padding: 10px 22px;
+    border-radius: 10px;
+
+    background-color: rgba(20, 20, 20, 0.85);
+    color: #00ffd5;
+
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+
+    box-shadow:
+        0 0 0 1px rgba(0, 255, 213, 0.4),
+        0 10px 24px rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.enter-game:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 0 1px rgba(0, 255, 213, 0.6),
+        0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="main-box">
+        <h1 class="h-1">AN INVITATION TO MARK A MILESTONE</h1>
+
+        <p class="subtle-para">
+            A Formal Gathering to Celebrate Thirteen
+        </p>
+
+        <a class="action-button" href="venue.html">Venue</a>
+        <a class="action-button" href="furtherinfo.html">Further Info</a>
+
+        <div class="sub-box-one">
+            An Occasion Marking the Beginning of Teenage Years
+        </div>
+        <div class ="sub-box-two">
+            bday
+        </div>
+        <p class="subtle-para-two"><span class="span-1">|</span>AKHILESH's <span class="13-css">13th</span> B'day <span class="span-2">|</span>
+        </p>
+        <a href="template.html" class="enter-game">
+    ENTER GAME INFO
+</a>
+
+    </div>
+</body>
 </html>
